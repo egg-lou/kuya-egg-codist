@@ -1,0 +1,89 @@
+{
+    "createdAt": {
+        "type": "firestore/timestamp/1.0",
+        "seconds": 1749213116,
+        "nanoseconds": 103000000
+    },
+    "searchKeywords": [
+        "b",
+        "be",
+        "bes",
+        "best",
+        "best ",
+        "best m",
+        "best me",
+        "best mee",
+        "best meet",
+        "best meeti",
+        "best meetin",
+        "best meeting",
+        "best meeting ",
+        "best meeting p",
+        "best meeting po",
+        "best meeting poi",
+        "best meeting poin",
+        "best meeting point"
+    ],
+    "constraints": [
+        "m == grid.length",
+        "n == grid[i].length",
+        "1 <= m, n <= 200",
+        "grid[i][j] is either 0 or 1",
+        "There will be at least two friends in the grid."
+    ],
+    "updatedAt": {
+        "type": "firestore/timestamp/1.0",
+        "seconds": 1749213116,
+        "nanoseconds": 103000000
+    },
+    "examples": [
+        {
+            "input": "grid = [[1,0,0,0,1],[0,0,0,0,0],[0,0,1,0,0]]",
+            "explanation": "Three friends live at coordinates (0,0), (0,4), and (2,2). The point (0,2) serves as an optimal meeting spot because the total travel distance—calculated as 2 + 2 + 2 = 6—is the smallest possible. Therefore, the result should be 6.\n",
+            "output": "6"
+        },
+        {
+            "input": "grid = [[1,1]]",
+            "output": "1",
+            "explanation": ""
+        }
+    ],
+    "starterCode": {
+        "go": "// Go code\n\npackage main\n\nfunc solution(grid []int) interface{} {\n    // Write your code here\n    return nil\n}\n\nfunc main() {\n //Don't change the main function\n result := solution(grid)\n}",
+        "python": "# Python code\n\ndef solution(grid):\n    # Write your code here\n    pass",
+        "javascript": "// JavaScript code\n\nfunction solution(grid) {\n    // Write your code here\n    return;\n}",
+        "java": "// Java code\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Solution method\n         Object result = solution(grid);\n    }\n\n    public static Object solution(int[] grid) {\n        // Write your code here\n        return null;\n    }\n}"
+    },
+    "author": {
+        "authorName": "douleiamaeyap@gmail.com"
+    },
+    "slug": "best-meeting-point",
+    "testCases": [
+        {
+            "output": "6",
+            "variables": [
+                {
+                    "value": "[[1,0,0,0,1],[0,0,0,0,0],[0,0,1,0,0]]",
+                    "elementType": "int",
+                    "name": "grid",
+                    "type": "array"
+                }
+            ]
+        },
+        {
+            "output": "1",
+            "variables": [
+                {
+                    "type": "array",
+                    "value": "[[1,1]]",
+                    "name": "grid",
+                    "elementType": "int"
+                }
+            ]
+        }
+    ],
+    "nameLower": "best meeting point",
+    "statement": "<p>You have an m by n binary grid where each cell with a 1 represents a friend's home. Your task is to find a meeting point that minimizes the total travel distance for all friends.</p><p>The total travel distance is the sum of the Manhattan distances from each friend's home to the meeting point, where Manhattan distance between two points p1 and p2 is calculated as |p2.x - p1.x| + |p2.y - p1.y|.</p><p>Return the smallest possible total travel distance.</p>",
+    "difficulty": "hard",
+    "name": "Best Meeting Point"
+}
