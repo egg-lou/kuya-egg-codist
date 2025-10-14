@@ -67,7 +67,7 @@ console.log("2 + 3 =", result);
 
         const resultResponse = await fetch(`${JUDGE0_API_URL}/submissions/${token}?base64_encoded=false`, {
           headers: {
-            ...(JUDGE0_AUTH_TOKEN && { 'X-Auth-Token': JUDGE0_AUTH_TOKEN })
+            ...(JUDGE0_AUTH_TOKEN && { 'td-auth-token': JUDGE0_AUTH_TOKEN })
           }
         })
 
@@ -189,7 +189,7 @@ console.log('JUDGE_RESULTS_END');
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          ...(JUDGE0_AUTH_TOKEN && { 'X-Auth-Token': JUDGE0_AUTH_TOKEN })
+          ...(JUDGE0_AUTH_TOKEN && { 'td-auth-token': JUDGE0_AUTH_TOKEN })
         },
         body: JSON.stringify({
           source_code: wrappedCode,
@@ -215,7 +215,7 @@ console.log('JUDGE_RESULTS_END');
 
         const resultResponse = await fetch(`${JUDGE0_API_URL}/submissions/${token}?base64_encoded=false`, {
           headers: {
-            ...(JUDGE0_AUTH_TOKEN && { 'X-Auth-Token': JUDGE0_AUTH_TOKEN })
+            ...(JUDGE0_AUTH_TOKEN && { 'td-auth-token': JUDGE0_AUTH_TOKEN })
           }
         })
 
