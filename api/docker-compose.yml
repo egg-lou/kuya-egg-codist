@@ -23,7 +23,9 @@ services:
     command: ["./scripts/workers"]
     volumes:
       - ./judge0.conf:/judge0.conf:ro
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+      - /sys/fs/cgroup/systemd:/sys/fs/cgroup/systemd:rw
+      - /sys/fs/cgroup/cpu,cpuacct:/sys/fs/cgroup/cpu,cpuacct:rw
+      - /sys/fs/cgroup/memory:/sys/fs/cgroup/memory:rw
     privileged: true
     security_opt:
       - apparmor:unconfined
