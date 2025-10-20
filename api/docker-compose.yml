@@ -28,6 +28,8 @@ services:
       - /sys/fs/cgroup/memory:/sys/fs/cgroup/memory:rw
       - /sys/fs/cgroup/cpuset:/sys/fs/cgroup/cpuset:rw
       - /sys/fs/cgroup/systemd:/sys/fs/cgroup/systemd:rw
+    environment:
+      - ISOLATE_CGROUP_SKIP_CONTROLLERS=cpuset
     privileged: true
     security_opt:
       - apparmor:unconfined
