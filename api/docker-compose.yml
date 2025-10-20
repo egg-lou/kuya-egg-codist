@@ -24,6 +24,8 @@ services:
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     privileged: true
+    security_opt:
+      - apparmor:unconfined
     <<: *default-logging
     restart: always
 
