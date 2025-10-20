@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Runner IDE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3Cpath fill='%238be9fd' d='M392.8 65.2C375.8 60.3 358.1 70.2 353.2 87.2L225.2 535.2C220.3 552.2 230.2 569.9 247.2 574.8C264.2 579.7 281.9 569.8 286.8 552.8L414.8 104.8C419.7 87.8 409.8 70.1 392.8 65.2zM457.4 201.3C444.9 213.8 444.9 234.1 457.4 246.6L530.8 320L457.4 393.4C444.9 405.9 444.9 426.2 457.4 438.7C469.9 451.2 490.2 451.2 502.7 438.7L598.7 342.7C611.2 330.2 611.2 309.9 598.7 297.4L502.7 201.4C490.2 188.9 469.9 188.9 457.4 201.4zM182.7 201.3C170.2 188.8 149.9 188.8 157.4 201.3L53.2 320L157.4 438.7C169.9 451.2 190.2 451.2 202.7 438.7C215.2 426.2 215.2 405.9 202.7 393.4L98.5 320L202.7 246.6C215.2 234.1 215.2 213.8 202.7 201.3C190.2 188.8 169.9 188.8 157.4 201.3z'/%3E%3C/svg%3E">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"><i class="fa-solid fa-code"></i></div>
+        
+        <div class="file-dropdown">
+            <button class="file-dropdown-btn" id="fileDropdownBtn">
+                <i class="fa-solid fa-folder"></i>
+                File
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="file-dropdown-content" id="fileDropdownContent">
+                <div class="file-dropdown-item" id="openFileBtn">
+                    <i class="fa-solid fa-folder-open"></i>
+                    Open a file
+                </div>
+                <div class="file-dropdown-item" id="saveCodeBtn">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Save Code
+                </div>
+            </div>
+        </div>
+        
+        <input type="file" id="fileInput" accept=".txt,.js,.py,.cpp,.c,.java,.php,.rb,.go,.rs,.cs,.ts,.html,.css,.json,.xml,.md">
+        
+        <div class="language-info">
+            <span class="current-language" id="currentLanguage">Python</span>
+            <select class="language-selector" id="languageSelector">
+                <option value="71">Python (3.12.0)</option>
+                <option value="92">Python for ML (3.8.1)</option>
+                <option value="63">JavaScript (Node.js 12.14.0)</option>
+                <option value="74">TypeScript (3.7.4)</option>
+                <option value="72">Ruby (2.7.0)</option>
+                <option value="46">Bash (5.0.0)</option>
+                <option value="57">Elixir (1.9.4)</option>
+                <option value="54">C++ (GCC 9.2.0)</option>
+                <option value="60">Go (1.13.5)</option>
+                <option value="62">Java (OpenJDK 13.0.1)</option>
+                <option value="68">PHP (7.4.1)</option>
+                <option value="73">Rust (1.40.0)</option>
+                <option value="51">C# (Mono 6.6.0.161)</option>
+                <option value="50">C (GCC 9.2.0)</option>
+            </select>
+        </div>
+        
+        <div class="navbar-controls">
+            <button class="run-button" id="runButton">
+                Run
+                <i class="fa-solid fa-circle-play"></i>
+            </button>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="split-container">
+            <div class="left-pane">
+                <div class="filename-header">
+                    <i class="fa-solid fa-file-code"></i>
+                    <span id="currentFileName">main.py</span>
+                </div>
+                <div id="editor"></div>
+                
+                <div class="resize-handle-vertical" id="verticalResize"></div>
+                
+                <div class="input-section" id="inputSection">
+                    <div class="section-header">Input</div>
+                    <div class="section-content" style="padding: 0;">
+                        <textarea class="input-area" id="inputArea" placeholder="Enter input for your program here..."></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resize-handle-horizontal" id="horizontalResize"></div>
+            
+            <div class="right-pane">
+                <div class="output-section" id="outputSection">
+                    <div class="section-header">Output</div>
+                    <div class="section-content">
+                        <div class="output-area" id="outputArea">Click "Run" to execute your code...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-bar">
+        <div class="status-item">
+            Execution Time: <span class="status-value" id="executionTime">-</span>
+        </div>
+        <div class="status-item">
+            Memory Used: <span class="status-value" id="memoryUsed">-</span>
+        </div>
+        <div class="status-item">
+            Status: <span class="status-value" id="status">Ready</span>
+        </div>
+        <div class="footer-text">
+            © 2025 Code Runner IDE by Tutorials Dojo | Based on Judge0 IDE
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

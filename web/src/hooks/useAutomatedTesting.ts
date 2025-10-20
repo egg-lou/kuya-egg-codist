@@ -40,7 +40,7 @@ async function submitToJudge0(code: string, languageId: number, timeLimit?: numb
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      ...(JUDGE0_AUTH_TOKEN && { 'X-Auth-Token': JUDGE0_AUTH_TOKEN })
+      ...(JUDGE0_AUTH_TOKEN && { 'td-auth-token': JUDGE0_AUTH_TOKEN })
     },
     body: JSON.stringify({
       source_code: code,
@@ -65,7 +65,7 @@ async function submitToJudge0(code: string, languageId: number, timeLimit?: numb
 
     const resultResponse = await fetch(`${JUDGE0_API_URL}/submissions/${token}?base64_encoded=false`, {
       headers: {
-        ...(JUDGE0_AUTH_TOKEN && { 'X-Auth-Token': JUDGE0_AUTH_TOKEN })
+        ...(JUDGE0_AUTH_TOKEN && { 'td-auth-token': JUDGE0_AUTH_TOKEN })
       }
     })
 
